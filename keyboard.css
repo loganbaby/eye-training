@@ -21,7 +21,7 @@ body {
   }
 
   .info {
-    color: rgb(77, 70, 182);
+    color: rgb(237, 64, 64);
     text-transform: uppercase;
     font-size: 1em;
     letter-spacing: 0.3em;
@@ -75,11 +75,11 @@ body {
   }
   
   .pinky { 
-    background-color: crimson;
-    border: 2px solid crimson;
+    background-color: rgb(20, 220, 187);
+    border: 2px solid rgb(19, 183, 39);
   }
   .pinky.selected {
-    color: crimson;
+    color: rgb(255, 255, 255);
   }
   
   .ring { 
@@ -91,8 +91,8 @@ body {
   }
   
   .middle { 
-    background-color: darkorange;
-    border: 2px solid darkorange;
+    background-color: rgb(255, 217, 0);
+    border: 2px solid rgb(255, 238, 0);
   }
   .middle.selected {
     color: darkorange;
