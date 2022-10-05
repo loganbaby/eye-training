@@ -7,7 +7,7 @@ var countOfFalseTaps = 0;
 var counterDocument = document.createElement('div');
 
 timestamps.unshift(getTimestamp());
-var elapsedTime = 0;
+var elapsedTime = 0.0;
 
 function getRandomKey() {
     function getRandomNumber(min, max) {
@@ -53,7 +53,7 @@ document.addEventListener("keyup", event => {
   if(document.querySelector('input[id=inf]').checked) {
     counterDocument.innerHTML = "Count of true taps: " + countOftrueTaps + '<br><br>';
     counterDocument.innerHTML += "Count of false taps: " + countOfFalseTaps + '<br><br>';
-    counterDocument.innerHTML += "Speed: " + (60 / elapsedTime) + ' ch / min <br><br>';
+    counterDocument.innerHTML += "Speed: " + (60.0 / elapsedTime) + ' ch / min <br><br>';
     counterDocument.className = "info";
     document.body.append(counterDocument);
   } else {
@@ -61,29 +61,21 @@ document.addEventListener("keyup", event => {
   }
 
   if(document.querySelector('input[id=color-gen]').checked) {
-    for(let i = 0; i < document.getElementsByClassName('pinky').length; ++i) {
-      r = Math.floor(Math.random() * (256));
-      g = Math.floor(Math.random() * (256));
-      b = Math.floor(Math.random() * (256));
-
-      document.getElementsByClassName('pinky')[i].style = `background-color: rgb(${r}, ${g}, ${b});`;
+    function setColorByClassName(classname) {
+      for(let i = 0; i < document.getElementsByClassName(classname).length; ++i) {
+        r = Math.floor(Math.random() * (256));
+        g = Math.floor(Math.random() * (256));
+        b = Math.floor(Math.random() * (256));
+  
+        document.getElementsByClassName(classname)[i].style = `background-color: rgb(${r}, ${g}, ${b});`;
+      }
     }
 
-    for(let i = 0; i < document.getElementsByClassName('ring').length; ++i) {
-      r = Math.floor(Math.random() * (256));
-      g = Math.floor(Math.random() * (256));
-      b = Math.floor(Math.random() * (256));
-
-      document.getElementsByClassName('ring')[i].style = `background-color: rgb(${r}, ${g}, ${b});`;
-    }
-
-    for(let i = 0; i < document.getElementsByClassName('middle').length; ++i) {
-      r = Math.floor(Math.random() * (256));
-      g = Math.floor(Math.random() * (256));
-      b = Math.floor(Math.random() * (256));
-      
-      document.getElementsByClassName('middle')[i].style = `background-color: rgb(${r}, ${g}, ${b});`;
-    }
+    setColorByClassName('pinky');
+    setColorByClassName('ring');
+    setColorByClassName('middle');
+    setColorByClassName('pointer1st');
+    setColorByClassName('pointer2nd');
   }
 })
 
